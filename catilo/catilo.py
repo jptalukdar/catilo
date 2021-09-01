@@ -2,22 +2,33 @@ import uuid
 import os
 import yaml
 import json
+import enum
+from flatten_dict import flatten
 
-def loadAsYml(path):
+"""
+Var source priority:
+    ENV: 1
+    RUNTIME: 2
+"""
+class Priority(enum.Enum):
+    ENV : 1
+    USER_VARS : 2
+    DEFAULT: 10
+def __loadAsYml(path):
         with open(path,'r') as fp:
             data = yaml.safe_load(fp)
         return data
 
-def loadAsJSON(path):
+def __loadAsJSON(path):
         with open(path,'r') as fp:
             data = json.loads(fp.read())
         return data
 
-def loadFile(path):
-        if str(path).lower().endswith('.yml'):
-            return loadAsYml(path)
+def __loadFile(path):
+        if str(path).lower().endswith('.yml') or str(path).lower().endswith('.yaml'):
+            return __loadAsYml(path)
         elif str(path).lower().endswith('.json'):
-            return loadAsJSON(path)
+            return __loadAsYml(path)
         else:
             raise UnsupportedFileTypeException(path.split('.')[-1])
 
@@ -29,7 +40,7 @@ class UnsupportedFileTypeException(Exception):
         return str(self.value)
 
 class Source():
-    def __init__(self,name,priority,file=None,dictionary : dict=None):
+    def __init__(self,name,priority,file=None,dictionary : dict=None,url=None):
         self.name = name
         self.priority = int(priority)
         self.variables = {}
@@ -40,7 +51,7 @@ class Source():
 
     def loadFile(self,path):
         try:
-            variables =loadFile(path)
+            variables =__loadFile(path)
             self.variables.update(dict(variables))
         except Exception:
             Exception('Could not read file, check again')
@@ -96,12 +107,12 @@ class VariableDirectory():
         self.sources = {}
         self.variables = {}
         self.uuidMappings = {}
-        self.baseSources()
-        self.updateVars()
+        self.__add_base_sources()
+        self.__update_vars()
     def getUUID(self):
         return str(uuid.uuid4().hex)
 
-    def addNewSource(self,name,priority,file=None,dictionary=None):
+    def add_new_source(self,name,priority,file=None,dictionary=None):
         uuid = self.getUUID()
         if name in self.uuidMappings:
             raise DuplicateSourceException((name,self.uuidMappings[name]),msg = "Source {value[0]} already exists with uuid {value[1]}")
@@ -111,38 +122,53 @@ class VariableDirectory():
             self.prioritylist[priority].append(uuid)
         else:
             self.prioritylist[priority] = [uuid]
-        self.updateVars()
+        self.__update_vars()
 
-    def baseSources(self):
-        self.addNewSource('USER_VARS',2)
-        self.addNewSource('ENV',1,dictionary=self.getEnvironmentVars())
+    def __add_base_sources(self):
+        self.addNewSource('USER_VARS',Priority.USER_VARS)
 
-    def addNewFilesToSource(self,name,path):
+    def add_new_files_to_source(self,name,path):
         if name not in self.uuidMappings:
             raise UnknownSourceException(name)
 
         uuid = self.uuidMappings[name]
         self.sources[uuid].loadFile(path)
-        self.updateVars()
+        self.__update_vars()
 
-    def runtimeVars(self,key,value):
+    def add_runtime_var(self,key,value):
         uuid = self.uuidMappings['USER_VARS']
         self.sources[uuid].addVar(key,value)
-        self.updateVars()
-        
-    def getEnvironmentVars(self):
-        PREFIX = 'ARENA_'
+        self.__update_vars()
+    
+    def enable_environment_vars(self,prefix:str="CATILO_",strip:bool=False):
+        """
+        Enables config retrieval from Environment variables
+        @Params:
+            prefix:str : A prefix value for bulk retrieval
+            strip:bool : strip removes the prefix during storages. Eg, CATILO_VAR would be stored as VAR for prefix "CATILO_"   
+        """
+        identifier = "ENV_" + prefix
+        if identifier in self.sources:
+            raise DuplicateSourceException(prefix, msg=f"Environment source for prefix {prefix} is already present. Use refresh_env_vars(prefix) to refresh the vars")
+
+        varsdict = self.__get_environment_vars(prefix)
+        if strip:
+            varsdict = { k.strip(prefix):v for k,v in varsdict.items()}
+        self.add_new_source(identifier,priority=Priority.ENV,dictionary=varsdict)
+
+
+    def __get_environment_vars(self,prefix="CATILO_"):
         envvars = dict(os.environ)
-        envvars = { k: v for k,v in envvars.items() if str(k).startswith(PREFIX)}
+        envvars = { k: v for k,v in envvars.items() if str(k).startswith("CATILO_")}
         return envvars
 
-    def updateVars(self):
+    def __update_vars(self):
         priorities = sorted(list(self.prioritylist.keys()),reverse=True)
         for priority in priorities:
             for source in self.prioritylist[priority]:
                 self.variables.update(self.sources[source].getVarsDict())
-
-    def getVar(self,key):
+        
+    def get(self,key):
         if key not in self.variables:
             raise UndefinedVariableException(key)
         else:
