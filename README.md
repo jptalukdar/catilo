@@ -11,6 +11,8 @@ It will look into source 2 first, if not found will search in source1 , if then 
 
 ## Quickstart
 
+Use `pip install catilo` to install Catilo 
+
 Import the module at the start and define a variable directory. 
 ```python
 from catilo.catilo import VariableDirectory
