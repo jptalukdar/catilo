@@ -1,0 +1,1754 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>catilo API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>catilo</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">import uuid 
+import os
+import yaml
+import json
+from flatten_dict import flatten
+import unittest
+import jsonpath_ng
+import warnings
+import requests
+&#34;&#34;&#34;
+Var source priority:
+    ENV: 1
+    RUNTIME: 2
+&#34;&#34;&#34;
+class Priority():
+    ENV = 1
+    USER_VARS = 2
+    DEFAULT= 100
+
+def __loadAsYml(path):
+        with open(path,&#39;r&#39;) as fp:
+            data = yaml.safe_load(fp)
+        return data
+
+def __loadAsJSON(path):
+        with open(path,&#39;r&#39;) as fp:
+            data = json.loads(fp.read())
+        return data
+
+def __load_file(path):
+        if str(path).lower().endswith(&#39;.yml&#39;) or str(path).lower().endswith(&#39;.yaml&#39;):
+            return __loadAsYml(path)
+        elif str(path).lower().endswith(&#39;.json&#39;):
+            return __loadAsJSON(path)
+        else:
+            raise UnsupportedFileTypeException(path.split(&#39;.&#39;)[-1])
+
+class UnsupportedFileTypeException(Exception):
+    def __init__(self,value=&#34;Unsupported File Type Exception&#34;):
+        self.value = value
+    
+    def __str__(self):
+        return str(self.value)
+
+class Source():
+    def __init__(self,name:str,priority:int,dictionary : dict=None,store_flat :bool = True):
+        &#34;&#34;&#34;Initialize a variable source
+
+        Args:
+            name (str): [description]
+            priority (int): [description]
+            dictionary (dict, optional): [description]. Defaults to None.
+            store_flat (bool, optional): [description]. Defaults to True.
+        &#34;&#34;&#34;
+        self._add_source(name,priority,dictionary,store_flat)
+
+    def _add_source(self,name:str,priority:int,dictionary : dict=None,store_flat :bool = True):
+        self.name = name
+        self.priority = int(priority)
+        self.variables = {}
+        self.raw_variables = {}
+        self.store_flat = store_flat
+        if dictionary != None:
+            if self.store_flat:
+                dictionary = flatten(dictionary, reducer=&#34;dot&#34;, keep_empty_types=(dict, list,))
+            self.variables.update(dictionary)
+
+    def add_var(self,key:str,value:any):
+        &#34;&#34;&#34; Add a variable to source
+
+        Args:
+            key (str): [a key for your variable]
+            value (any): [value for the corresponding variable]
+        &#34;&#34;&#34;
+        self.variables[key] = value
+    
+    def get_var(self,key):
+        if key not in self.variables:
+            raise UndefinedVariableException(key)
+        else:
+            return self.variables[key]
+    
+    def get_vars_dict(self):
+        return self.variables
+
+    def get_priority(self):
+        return self.priority
+    
+    def set_priority(self,priority):
+        try:
+            priority = int(priority)
+        except Exception:
+            raise IncorrectPriorityException(priority)
+
+class FileSource(Source):
+    def __init__(self,name,priority,file : str=None,store_flat :bool = True):
+        dictionary = self.load_file(file)
+        self._add_source(name,priority,dictionary,store_flat)
+    
+    def load_file(self,path):
+        try:
+            variables =__load_file(path)
+            if self.store_flat:
+                variables = flatten(variables, reducer=&#34;dot&#34;, keep_empty_types=(dict, list,))
+            return variables
+        except Exception:
+            Exception(&#39;Could not read file, check again&#39;)
+
+class URLSource(Source):
+    def __init__(self,name,priority,url,filetype=&#39;json&#39;,store_flat :bool = True):
+        self.filetype = filetype
+        dictionary = self.load_url(url)
+        self._add_source(name,priority,json.loads(dictionary),store_flat)
+
+    def load_url(self,url):
+        response = requests.get(url)
+        return response.text
+        
+class BaseException(Exception):
+    msg = &#34;{value}&#34;
+
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg != None:
+            self.msg = msg
+        
+
+    def __str__(self):
+        return self.msg.format(self.value)
+        
+class IncorrectPriorityException(BaseException):
+    msg = &#34;Incorrect Priority Set {value}&#34;
+
+class UndefinedVariableException(BaseException):
+    msg = &#34;{value} not defined&#34;
+
+class DuplicateSourceException(BaseException):
+    msg = &#34;Source {value} already exists&#34;
+
+class UnknownSourceException(BaseException):
+    msg = &#34;Exception adding vars to unknown source [{value}]. PS: Source names are case sensitive&#34;
+
+class VariableDirectory():
+    def __init__(self,store_flat=True):
+        self.store_flat = store_flat
+        self.prioritylist = {}
+        self.sources = {}
+        self.variables = {}
+        self.raw_variables = {}
+        self.uuidMappings = {}
+        self.__add_base_sources()
+        self.__update_vars()
+
+    def __generate_uuid(self):
+        return str(uuid.uuid4().hex)
+
+    def add_custom_source(self,source: Source):
+        &#34;&#34;&#34;add_custom_source: Allows you to add custom source.
+
+        Args:
+            source (Source): [Any object inheriting catilo.Source class]
+
+        Raises:
+            DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        name = source.name
+        priority = source.priority
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = source
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+    
+    def add_file_source(self,name:str,priority:int,file:str):
+        &#34;&#34;&#34;Allows you to add a yaml or json file as source.
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            file (str): [a path containing json or yaml file]
+
+        Raises:
+            DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = FileSource(name,priority,file,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+    
+    def add_url_source(self,name:str,priority:int,url:str):
+        &#34;&#34;&#34;Allows you to add an url returning json data as source.
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            url (str): [description]
+
+        Raises:
+            DuplicateSourceException: [description]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = URLSource(name,priority,url=url,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+
+    def add_source(self,name:str,priority:str,dictionary:dict):
+        &#34;&#34;&#34;Allows you to add a dictionary as source
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            dictionary (dict): [description]
+
+        Raises:
+            DuplicateSourceException: [description]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = Source(name,priority,dictionary,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+
+    def __add_base_sources(self):
+        self.add_source(&#39;USER_VARS&#39;,Priority.USER_VARS,{})
+        self.add_source(&#34;DEFAULT&#34;,Priority.DEFAULT,{})
+
+    # def add_new_files_to_source(self,name,path):
+    #     if name not in self.uuidMappings:
+    #         raise UnknownSourceException(name)
+
+    #     uuid = self.uuidMappings[name]
+    #     self.sources[uuid].loadFile(path)
+    #     self.__update_vars()
+
+    def add_runtime_var(self,key:str,value:any):
+        &#34;&#34;&#34;Allows you to add variables in runtime. If Variable exist will replace
+
+        Args:
+            key (str): [variable name]
+            value (any): [variable value]
+        &#34;&#34;&#34;
+        uuid = self.uuidMappings[&#39;USER_VARS&#39;]
+        self.sources[uuid].add_var(key,value)
+        self.__update_vars()
+    
+    def add_default_var(self,key:str,value:any):
+        &#34;&#34;&#34;Allows you to add variables in runtime. If variable exist will replace
+
+        Args:
+            key (str): [description]
+            value (any): [description]
+        &#34;&#34;&#34;
+        uuid = self.uuidMappings[&#39;DEFAULT&#39;]
+        self.sources[uuid].add_var(key,value)
+        self.__update_vars()
+    
+    def enable_environment_vars(self,prefix:str=&#34;CATILO_&#34;,strip:bool=False):
+        &#34;&#34;&#34;
+        Enables config retrieval from Environment variables
+        @Params:
+            prefix:str : A prefix value for bulk retrieval
+            strip:bool : strip removes the prefix during storages. Eg, CATILO_VAR would be stored as VAR for prefix &#34;CATILO_&#34;   
+        &#34;&#34;&#34;
+        identifier = &#34;ENV_&#34; + prefix
+        if identifier in self.sources:
+            raise DuplicateSourceException(prefix, msg=f&#34;Environment source for prefix {prefix} is already present. Use refresh_env_vars(prefix) to refresh the vars&#34;)
+
+        varsdict = self.__get_environment_vars(prefix)
+        if strip:
+            varsdict = { k.strip(prefix):v for k,v in varsdict.items()}
+        self.add_source(identifier,priority=Priority.ENV,dictionary=varsdict)
+
+
+    def __get_environment_vars(self,prefix=&#34;CATILO_&#34;):
+        envvars = dict(os.environ)
+        envvars = { k: v for k,v in envvars.items() if str(k).startswith(&#34;CATILO_&#34;)}
+        return envvars
+
+    def __update_vars(self):
+        priorities = sorted(list(self.prioritylist.keys()),reverse=True)
+        for priority in priorities:
+            for source in self.prioritylist[priority]:
+                self.variables.update(self.sources[source].get_vars_dict())
+        
+    def get(self,key:str):
+        &#34;&#34;&#34;Retrieves a variable name
+
+        Args:
+            key (str): [variable name]
+
+        Raises:
+            UndefinedVariableException: [Raises if variable is not found]
+
+        Returns:
+            [any]: [value if found for the variable]
+        &#34;&#34;&#34;
+        if key not in self.variables:
+            raise UndefinedVariableException(key)
+        else:
+            return self.variables[key]
+
+    def jsonquery(self,expression:str):
+        if self.store_flat:
+            warnings.warn(&#34;VariableDirectory:jsonquery =&gt; Variables are stored in flat dictionary. Expression may result in incorrect results&#34;)
+        expr = jsonpath_ng.parse(&#34;$.&#34;+expression)
+        return [match.value for match in expr.find(self.variables)]
+
+class TestStringMethods(unittest.TestCase):
+
+    def test_runtime_priority(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : &#34;val1&#34;
+        })
+        varsource.add_runtime_var(&#34;key&#34;,&#34;val2&#34;)
+        self.assertEqual(varsource.get(&#34;key&#34;), &#39;val2&#39;)
+    def test_flat_dict(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {
+                &#34;key2&#34; : 5
+            }
+        })
+        self.assertEqual(varsource.get(&#34;key.key2&#34;), 5)
+    
+    def test_flat_dict_keys_with_dot(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key.key1&#34; : 
+                {&#34;key2&#34; : 5
+            }
+            
+                
+        })
+        self.assertEqual(varsource.get(&#34;key.key1.key2&#34;), 5)
+
+    def test_dict_keys_with_dot_json_query(self):
+        varsource = VariableDirectory(store_flat=False)
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {&#34;key2&#34; : 5
+            } 
+        })
+        self.assertEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])
+
+    def test_flat_dict_keys_with_dot_json_query(self):
+        varsource = VariableDirectory(store_flat=True)
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {&#34;key2&#34; : 5
+            } 
+        })
+        self.assertNotEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])
+    
+    def test_url_source(self):
+        varsource = VariableDirectory()
+        varsource.add_url_source(&#34;SampleJson&#34;,6,&#34;https://raw.githubusercontent.com/jptalukdar/catilo/master/tests_data/json/sample1.json&#34;)
+        self.assertEqual(varsource.get(&#34;color&#34;),&#34;Red&#34;)
+if __name__ == &#39;__main__&#39;:
+    unittest.main()</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="catilo.BaseException"><code class="flex name class">
+<span>class <span class="ident">BaseException</span></span>
+<span>(</span><span>value, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseException(Exception):
+    msg = &#34;{value}&#34;
+
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg != None:
+            self.msg = msg
+        
+
+    def __str__(self):
+        return self.msg.format(self.value)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></li>
+<li><a title="catilo.IncorrectPriorityException" href="#catilo.IncorrectPriorityException">IncorrectPriorityException</a></li>
+<li><a title="catilo.UndefinedVariableException" href="#catilo.UndefinedVariableException">UndefinedVariableException</a></li>
+<li><a title="catilo.UnknownSourceException" href="#catilo.UnknownSourceException">UnknownSourceException</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.BaseException.msg"><code class="name">var <span class="ident">msg</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.DuplicateSourceException"><code class="flex name class">
+<span>class <span class="ident">DuplicateSourceException</span></span>
+<span>(</span><span>value, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DuplicateSourceException(BaseException):
+    msg = &#34;Source {value} already exists&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.BaseException" href="#catilo.BaseException">BaseException</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.DuplicateSourceException.msg"><code class="name">var <span class="ident">msg</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.FileSource"><code class="flex name class">
+<span>class <span class="ident">FileSource</span></span>
+<span>(</span><span>name, priority, file: str = None, store_flat: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialize a variable source</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>dictionary</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>[description]. Defaults to None.</dd>
+<dt><strong><code>store_flat</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>[description]. Defaults to True.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class FileSource(Source):
+    def __init__(self,name,priority,file : str=None,store_flat :bool = True):
+        dictionary = self.load_file(file)
+        self._add_source(name,priority,dictionary,store_flat)
+    
+    def load_file(self,path):
+        try:
+            variables =__load_file(path)
+            if self.store_flat:
+                variables = flatten(variables, reducer=&#34;dot&#34;, keep_empty_types=(dict, list,))
+            return variables
+        except Exception:
+            Exception(&#39;Could not read file, check again&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.Source" href="#catilo.Source">Source</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="catilo.FileSource.load_file"><code class="name flex">
+<span>def <span class="ident">load_file</span></span>(<span>self, path)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_file(self,path):
+    try:
+        variables =__load_file(path)
+        if self.store_flat:
+            variables = flatten(variables, reducer=&#34;dot&#34;, keep_empty_types=(dict, list,))
+        return variables
+    except Exception:
+        Exception(&#39;Could not read file, check again&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="catilo.Source" href="#catilo.Source">Source</a></b></code>:
+<ul class="hlist">
+<li><code><a title="catilo.Source.add_var" href="#catilo.Source.add_var">add_var</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="catilo.IncorrectPriorityException"><code class="flex name class">
+<span>class <span class="ident">IncorrectPriorityException</span></span>
+<span>(</span><span>value, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class IncorrectPriorityException(BaseException):
+    msg = &#34;Incorrect Priority Set {value}&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.BaseException" href="#catilo.BaseException">BaseException</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.IncorrectPriorityException.msg"><code class="name">var <span class="ident">msg</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.Priority"><code class="flex name class">
+<span>class <span class="ident">Priority</span></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Priority():
+    ENV = 1
+    USER_VARS = 2
+    DEFAULT= 100</code></pre>
+</details>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.Priority.DEFAULT"><code class="name">var <span class="ident">DEFAULT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="catilo.Priority.ENV"><code class="name">var <span class="ident">ENV</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="catilo.Priority.USER_VARS"><code class="name">var <span class="ident">USER_VARS</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.Source"><code class="flex name class">
+<span>class <span class="ident">Source</span></span>
+<span>(</span><span>name: str, priority: int, dictionary: dict = None, store_flat: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialize a variable source</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>dictionary</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>[description]. Defaults to None.</dd>
+<dt><strong><code>store_flat</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>[description]. Defaults to True.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Source():
+    def __init__(self,name:str,priority:int,dictionary : dict=None,store_flat :bool = True):
+        &#34;&#34;&#34;Initialize a variable source
+
+        Args:
+            name (str): [description]
+            priority (int): [description]
+            dictionary (dict, optional): [description]. Defaults to None.
+            store_flat (bool, optional): [description]. Defaults to True.
+        &#34;&#34;&#34;
+        self._add_source(name,priority,dictionary,store_flat)
+
+    def _add_source(self,name:str,priority:int,dictionary : dict=None,store_flat :bool = True):
+        self.name = name
+        self.priority = int(priority)
+        self.variables = {}
+        self.raw_variables = {}
+        self.store_flat = store_flat
+        if dictionary != None:
+            if self.store_flat:
+                dictionary = flatten(dictionary, reducer=&#34;dot&#34;, keep_empty_types=(dict, list,))
+            self.variables.update(dictionary)
+
+    def add_var(self,key:str,value:any):
+        &#34;&#34;&#34; Add a variable to source
+
+        Args:
+            key (str): [a key for your variable]
+            value (any): [value for the corresponding variable]
+        &#34;&#34;&#34;
+        self.variables[key] = value
+    
+    def get_var(self,key):
+        if key not in self.variables:
+            raise UndefinedVariableException(key)
+        else:
+            return self.variables[key]
+    
+    def get_vars_dict(self):
+        return self.variables
+
+    def get_priority(self):
+        return self.priority
+    
+    def set_priority(self,priority):
+        try:
+            priority = int(priority)
+        except Exception:
+            raise IncorrectPriorityException(priority)</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="catilo.FileSource" href="#catilo.FileSource">FileSource</a></li>
+<li><a title="catilo.URLSource" href="#catilo.URLSource">URLSource</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="catilo.Source.add_var"><code class="name flex">
+<span>def <span class="ident">add_var</span></span>(<span>self, key: str, value: <built-in function any>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a variable to source</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>[a key for your variable]</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>any</code></dt>
+<dd>[value for the corresponding variable]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_var(self,key:str,value:any):
+    &#34;&#34;&#34; Add a variable to source
+
+    Args:
+        key (str): [a key for your variable]
+        value (any): [value for the corresponding variable]
+    &#34;&#34;&#34;
+    self.variables[key] = value</code></pre>
+</details>
+</dd>
+<dt id="catilo.Source.get_priority"><code class="name flex">
+<span>def <span class="ident">get_priority</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_priority(self):
+    return self.priority</code></pre>
+</details>
+</dd>
+<dt id="catilo.Source.get_var"><code class="name flex">
+<span>def <span class="ident">get_var</span></span>(<span>self, key)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_var(self,key):
+    if key not in self.variables:
+        raise UndefinedVariableException(key)
+    else:
+        return self.variables[key]</code></pre>
+</details>
+</dd>
+<dt id="catilo.Source.get_vars_dict"><code class="name flex">
+<span>def <span class="ident">get_vars_dict</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_vars_dict(self):
+    return self.variables</code></pre>
+</details>
+</dd>
+<dt id="catilo.Source.set_priority"><code class="name flex">
+<span>def <span class="ident">set_priority</span></span>(<span>self, priority)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_priority(self,priority):
+    try:
+        priority = int(priority)
+    except Exception:
+        raise IncorrectPriorityException(priority)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.TestStringMethods"><code class="flex name class">
+<span>class <span class="ident">TestStringMethods</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>A class whose instances are single test cases.</p>
+<p>By default, the test code itself should be placed in a method named
+'runTest'.</p>
+<p>If the fixture may be used for many test cases, create as
+many test methods as are needed. When instantiating such a TestCase
+subclass, specify in the constructor arguments the name of the test method
+that the instance is to execute.</p>
+<p>Test authors should subclass TestCase for their own tests. Construction
+and deconstruction of the test's environment ('fixture') can be
+implemented by overriding the 'setUp' and 'tearDown' methods respectively.</p>
+<p>If it is necessary to override the <strong>init</strong> method, the base class
+<strong>init</strong> method must always be called. It is important that subclasses
+should not change the signature of their <strong>init</strong> method, since instances
+of the classes are instantiated automatically by parts of the framework
+in order to be run.</p>
+<p>When subclassing TestCase, you can set these attributes:
+* failureException: determines which exception will be raised when
+the instance's assertion methods fail; test methods raising this
+exception will be deemed to have 'failed' rather than 'errored'.
+* longMessage: determines whether long messages (including repr of
+objects used in assert methods) will be printed on failure in <em>addition</em>
+to any explicit message passed.
+* maxDiff: sets the maximum length of a diff in failure messages
+by assert methods using difflib. It is looked up as an instance
+attribute so can be configured by individual tests if required.</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestStringMethods(unittest.TestCase):
+
+    def test_runtime_priority(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : &#34;val1&#34;
+        })
+        varsource.add_runtime_var(&#34;key&#34;,&#34;val2&#34;)
+        self.assertEqual(varsource.get(&#34;key&#34;), &#39;val2&#39;)
+    def test_flat_dict(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {
+                &#34;key2&#34; : 5
+            }
+        })
+        self.assertEqual(varsource.get(&#34;key.key2&#34;), 5)
+    
+    def test_flat_dict_keys_with_dot(self):
+        varsource = VariableDirectory()
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key.key1&#34; : 
+                {&#34;key2&#34; : 5
+            }
+            
+                
+        })
+        self.assertEqual(varsource.get(&#34;key.key1.key2&#34;), 5)
+
+    def test_dict_keys_with_dot_json_query(self):
+        varsource = VariableDirectory(store_flat=False)
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {&#34;key2&#34; : 5
+            } 
+        })
+        self.assertEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])
+
+    def test_flat_dict_keys_with_dot_json_query(self):
+        varsource = VariableDirectory(store_flat=True)
+        varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+            &#34;key&#34; : {&#34;key2&#34; : 5
+            } 
+        })
+        self.assertNotEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])
+    
+    def test_url_source(self):
+        varsource = VariableDirectory()
+        varsource.add_url_source(&#34;SampleJson&#34;,6,&#34;https://raw.githubusercontent.com/jptalukdar/catilo/master/tests_data/json/sample1.json&#34;)
+        self.assertEqual(varsource.get(&#34;color&#34;),&#34;Red&#34;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="catilo.TestStringMethods.test_dict_keys_with_dot_json_query"><code class="name flex">
+<span>def <span class="ident">test_dict_keys_with_dot_json_query</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_dict_keys_with_dot_json_query(self):
+    varsource = VariableDirectory(store_flat=False)
+    varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+        &#34;key&#34; : {&#34;key2&#34; : 5
+        } 
+    })
+    self.assertEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])</code></pre>
+</details>
+</dd>
+<dt id="catilo.TestStringMethods.test_flat_dict"><code class="name flex">
+<span>def <span class="ident">test_flat_dict</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_flat_dict(self):
+    varsource = VariableDirectory()
+    varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+        &#34;key&#34; : {
+            &#34;key2&#34; : 5
+        }
+    })
+    self.assertEqual(varsource.get(&#34;key.key2&#34;), 5)</code></pre>
+</details>
+</dd>
+<dt id="catilo.TestStringMethods.test_flat_dict_keys_with_dot"><code class="name flex">
+<span>def <span class="ident">test_flat_dict_keys_with_dot</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_flat_dict_keys_with_dot(self):
+    varsource = VariableDirectory()
+    varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+        &#34;key.key1&#34; : 
+            {&#34;key2&#34; : 5
+        }
+        
+            
+    })
+    self.assertEqual(varsource.get(&#34;key.key1.key2&#34;), 5)</code></pre>
+</details>
+</dd>
+<dt id="catilo.TestStringMethods.test_flat_dict_keys_with_dot_json_query"><code class="name flex">
+<span>def <span class="ident">test_flat_dict_keys_with_dot_json_query</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_flat_dict_keys_with_dot_json_query(self):
+    varsource = VariableDirectory(store_flat=True)
+    varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+        &#34;key&#34; : {&#34;key2&#34; : 5
+        } 
+    })
+    self.assertNotEqual(varsource.jsonquery(&#34;key.key2&#34;), [5])</code></pre>
+</details>
+</dd>
+<dt id="catilo.TestStringMethods.test_runtime_priority"><code class="name flex">
+<span>def <span class="ident">test_runtime_priority</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_runtime_priority(self):
+    varsource = VariableDirectory()
+    varsource.add_source(&#34;test1&#34;,priority=5,dictionary={
+        &#34;key&#34; : &#34;val1&#34;
+    })
+    varsource.add_runtime_var(&#34;key&#34;,&#34;val2&#34;)
+    self.assertEqual(varsource.get(&#34;key&#34;), &#39;val2&#39;)</code></pre>
+</details>
+</dd>
+<dt id="catilo.TestStringMethods.test_url_source"><code class="name flex">
+<span>def <span class="ident">test_url_source</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_url_source(self):
+    varsource = VariableDirectory()
+    varsource.add_url_source(&#34;SampleJson&#34;,6,&#34;https://raw.githubusercontent.com/jptalukdar/catilo/master/tests_data/json/sample1.json&#34;)
+    self.assertEqual(varsource.get(&#34;color&#34;),&#34;Red&#34;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.URLSource"><code class="flex name class">
+<span>class <span class="ident">URLSource</span></span>
+<span>(</span><span>name, priority, url, filetype='json', store_flat: bool = True)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Initialize a variable source</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>dictionary</code></strong> :&ensp;<code>dict</code>, optional</dt>
+<dd>[description]. Defaults to None.</dd>
+<dt><strong><code>store_flat</code></strong> :&ensp;<code>bool</code>, optional</dt>
+<dd>[description]. Defaults to True.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class URLSource(Source):
+    def __init__(self,name,priority,url,filetype=&#39;json&#39;,store_flat :bool = True):
+        self.filetype = filetype
+        dictionary = self.load_url(url)
+        self._add_source(name,priority,json.loads(dictionary),store_flat)
+
+    def load_url(self,url):
+        response = requests.get(url)
+        return response.text</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.Source" href="#catilo.Source">Source</a></li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="catilo.URLSource.load_url"><code class="name flex">
+<span>def <span class="ident">load_url</span></span>(<span>self, url)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def load_url(self,url):
+    response = requests.get(url)
+    return response.text</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="catilo.Source" href="#catilo.Source">Source</a></b></code>:
+<ul class="hlist">
+<li><code><a title="catilo.Source.add_var" href="#catilo.Source.add_var">add_var</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="catilo.UndefinedVariableException"><code class="flex name class">
+<span>class <span class="ident">UndefinedVariableException</span></span>
+<span>(</span><span>value, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UndefinedVariableException(BaseException):
+    msg = &#34;{value} not defined&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.BaseException" href="#catilo.BaseException">BaseException</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.UndefinedVariableException.msg"><code class="name">var <span class="ident">msg</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.UnknownSourceException"><code class="flex name class">
+<span>class <span class="ident">UnknownSourceException</span></span>
+<span>(</span><span>value, msg=None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnknownSourceException(BaseException):
+    msg = &#34;Exception adding vars to unknown source [{value}]. PS: Source names are case sensitive&#34;</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="catilo.BaseException" href="#catilo.BaseException">BaseException</a></li>
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="catilo.UnknownSourceException.msg"><code class="name">var <span class="ident">msg</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="catilo.UnsupportedFileTypeException"><code class="flex name class">
+<span>class <span class="ident">UnsupportedFileTypeException</span></span>
+<span>(</span><span>value='Unsupported File Type Exception')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Common base class for all non-exit exceptions.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class UnsupportedFileTypeException(Exception):
+    def __init__(self,value=&#34;Unsupported File Type Exception&#34;):
+        self.value = value
+    
+    def __str__(self):
+        return str(self.value)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>builtins.Exception</li>
+<li>builtins.BaseException</li>
+</ul>
+</dd>
+<dt id="catilo.VariableDirectory"><code class="flex name class">
+<span>class <span class="ident">VariableDirectory</span></span>
+<span>(</span><span>store_flat=True)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class VariableDirectory():
+    def __init__(self,store_flat=True):
+        self.store_flat = store_flat
+        self.prioritylist = {}
+        self.sources = {}
+        self.variables = {}
+        self.raw_variables = {}
+        self.uuidMappings = {}
+        self.__add_base_sources()
+        self.__update_vars()
+
+    def __generate_uuid(self):
+        return str(uuid.uuid4().hex)
+
+    def add_custom_source(self,source: Source):
+        &#34;&#34;&#34;add_custom_source: Allows you to add custom source.
+
+        Args:
+            source (Source): [Any object inheriting catilo.Source class]
+
+        Raises:
+            DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        name = source.name
+        priority = source.priority
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = source
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+    
+    def add_file_source(self,name:str,priority:int,file:str):
+        &#34;&#34;&#34;Allows you to add a yaml or json file as source.
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            file (str): [a path containing json or yaml file]
+
+        Raises:
+            DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = FileSource(name,priority,file,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+    
+    def add_url_source(self,name:str,priority:int,url:str):
+        &#34;&#34;&#34;Allows you to add an url returning json data as source.
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            url (str): [description]
+
+        Raises:
+            DuplicateSourceException: [description]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = URLSource(name,priority,url=url,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+
+    def add_source(self,name:str,priority:str,dictionary:dict):
+        &#34;&#34;&#34;Allows you to add a dictionary as source
+
+        Args:
+            name (str): [unique name for your source]
+            priority (int): [set priority of the source]
+            dictionary (dict): [description]
+
+        Raises:
+            DuplicateSourceException: [description]
+        &#34;&#34;&#34;
+        uuid = self.__generate_uuid()
+        if name in self.uuidMappings:
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+        self.sources[uuid] = Source(name,priority,dictionary,store_flat=self.store_flat)
+        self.uuidMappings[name] = uuid
+        if priority in self.prioritylist:
+            self.prioritylist[priority].append(uuid)
+        else:
+            self.prioritylist[priority] = [uuid]
+        self.__update_vars()
+
+    def __add_base_sources(self):
+        self.add_source(&#39;USER_VARS&#39;,Priority.USER_VARS,{})
+        self.add_source(&#34;DEFAULT&#34;,Priority.DEFAULT,{})
+
+    # def add_new_files_to_source(self,name,path):
+    #     if name not in self.uuidMappings:
+    #         raise UnknownSourceException(name)
+
+    #     uuid = self.uuidMappings[name]
+    #     self.sources[uuid].loadFile(path)
+    #     self.__update_vars()
+
+    def add_runtime_var(self,key:str,value:any):
+        &#34;&#34;&#34;Allows you to add variables in runtime. If Variable exist will replace
+
+        Args:
+            key (str): [variable name]
+            value (any): [variable value]
+        &#34;&#34;&#34;
+        uuid = self.uuidMappings[&#39;USER_VARS&#39;]
+        self.sources[uuid].add_var(key,value)
+        self.__update_vars()
+    
+    def add_default_var(self,key:str,value:any):
+        &#34;&#34;&#34;Allows you to add variables in runtime. If variable exist will replace
+
+        Args:
+            key (str): [description]
+            value (any): [description]
+        &#34;&#34;&#34;
+        uuid = self.uuidMappings[&#39;DEFAULT&#39;]
+        self.sources[uuid].add_var(key,value)
+        self.__update_vars()
+    
+    def enable_environment_vars(self,prefix:str=&#34;CATILO_&#34;,strip:bool=False):
+        &#34;&#34;&#34;
+        Enables config retrieval from Environment variables
+        @Params:
+            prefix:str : A prefix value for bulk retrieval
+            strip:bool : strip removes the prefix during storages. Eg, CATILO_VAR would be stored as VAR for prefix &#34;CATILO_&#34;   
+        &#34;&#34;&#34;
+        identifier = &#34;ENV_&#34; + prefix
+        if identifier in self.sources:
+            raise DuplicateSourceException(prefix, msg=f&#34;Environment source for prefix {prefix} is already present. Use refresh_env_vars(prefix) to refresh the vars&#34;)
+
+        varsdict = self.__get_environment_vars(prefix)
+        if strip:
+            varsdict = { k.strip(prefix):v for k,v in varsdict.items()}
+        self.add_source(identifier,priority=Priority.ENV,dictionary=varsdict)
+
+
+    def __get_environment_vars(self,prefix=&#34;CATILO_&#34;):
+        envvars = dict(os.environ)
+        envvars = { k: v for k,v in envvars.items() if str(k).startswith(&#34;CATILO_&#34;)}
+        return envvars
+
+    def __update_vars(self):
+        priorities = sorted(list(self.prioritylist.keys()),reverse=True)
+        for priority in priorities:
+            for source in self.prioritylist[priority]:
+                self.variables.update(self.sources[source].get_vars_dict())
+        
+    def get(self,key:str):
+        &#34;&#34;&#34;Retrieves a variable name
+
+        Args:
+            key (str): [variable name]
+
+        Raises:
+            UndefinedVariableException: [Raises if variable is not found]
+
+        Returns:
+            [any]: [value if found for the variable]
+        &#34;&#34;&#34;
+        if key not in self.variables:
+            raise UndefinedVariableException(key)
+        else:
+            return self.variables[key]
+
+    def jsonquery(self,expression:str):
+        if self.store_flat:
+            warnings.warn(&#34;VariableDirectory:jsonquery =&gt; Variables are stored in flat dictionary. Expression may result in incorrect results&#34;)
+        expr = jsonpath_ng.parse(&#34;$.&#34;+expression)
+        return [match.value for match in expr.find(self.variables)]</code></pre>
+</details>
+<h3>Methods</h3>
+<dl>
+<dt id="catilo.VariableDirectory.add_custom_source"><code class="name flex">
+<span>def <span class="ident">add_custom_source</span></span>(<span>self, source: <a title="catilo.Source" href="#catilo.Source">Source</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>add_custom_source: Allows you to add custom source.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>source</code></strong> :&ensp;<code><a title="catilo.Source" href="#catilo.Source">Source</a></code></dt>
+<dd>[Any object inheriting catilo.Source class]</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></code></dt>
+<dd>[Raises DuplicateSourceException if same source name is added previously]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_custom_source(self,source: Source):
+    &#34;&#34;&#34;add_custom_source: Allows you to add custom source.
+
+    Args:
+        source (Source): [Any object inheriting catilo.Source class]
+
+    Raises:
+        DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+    &#34;&#34;&#34;
+    uuid = self.__generate_uuid()
+    name = source.name
+    priority = source.priority
+    if name in self.uuidMappings:
+        raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+    self.sources[uuid] = source
+    self.uuidMappings[name] = uuid
+    if priority in self.prioritylist:
+        self.prioritylist[priority].append(uuid)
+    else:
+        self.prioritylist[priority] = [uuid]
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.add_default_var"><code class="name flex">
+<span>def <span class="ident">add_default_var</span></span>(<span>self, key: str, value: <built-in function any>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Allows you to add variables in runtime. If variable exist will replace</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>any</code></dt>
+<dd>[description]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_default_var(self,key:str,value:any):
+    &#34;&#34;&#34;Allows you to add variables in runtime. If variable exist will replace
+
+    Args:
+        key (str): [description]
+        value (any): [description]
+    &#34;&#34;&#34;
+    uuid = self.uuidMappings[&#39;DEFAULT&#39;]
+    self.sources[uuid].add_var(key,value)
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.add_file_source"><code class="name flex">
+<span>def <span class="ident">add_file_source</span></span>(<span>self, name: str, priority: int, file: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Allows you to add a yaml or json file as source.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[unique name for your source]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[set priority of the source]</dd>
+<dt><strong><code>file</code></strong> :&ensp;<code>str</code></dt>
+<dd>[a path containing json or yaml file]</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></code></dt>
+<dd>[Raises DuplicateSourceException if same source name is added previously]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_file_source(self,name:str,priority:int,file:str):
+    &#34;&#34;&#34;Allows you to add a yaml or json file as source.
+
+    Args:
+        name (str): [unique name for your source]
+        priority (int): [set priority of the source]
+        file (str): [a path containing json or yaml file]
+
+    Raises:
+        DuplicateSourceException: [Raises DuplicateSourceException if same source name is added previously]
+    &#34;&#34;&#34;
+    uuid = self.__generate_uuid()
+    if name in self.uuidMappings:
+        raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+    self.sources[uuid] = FileSource(name,priority,file,store_flat=self.store_flat)
+    self.uuidMappings[name] = uuid
+    if priority in self.prioritylist:
+        self.prioritylist[priority].append(uuid)
+    else:
+        self.prioritylist[priority] = [uuid]
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.add_runtime_var"><code class="name flex">
+<span>def <span class="ident">add_runtime_var</span></span>(<span>self, key: str, value: <built-in function any>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Allows you to add variables in runtime. If Variable exist will replace</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>[variable name]</dd>
+<dt><strong><code>value</code></strong> :&ensp;<code>any</code></dt>
+<dd>[variable value]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_runtime_var(self,key:str,value:any):
+    &#34;&#34;&#34;Allows you to add variables in runtime. If Variable exist will replace
+
+    Args:
+        key (str): [variable name]
+        value (any): [variable value]
+    &#34;&#34;&#34;
+    uuid = self.uuidMappings[&#39;USER_VARS&#39;]
+    self.sources[uuid].add_var(key,value)
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.add_source"><code class="name flex">
+<span>def <span class="ident">add_source</span></span>(<span>self, name: str, priority: str, dictionary: dict)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Allows you to add a dictionary as source</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[unique name for your source]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[set priority of the source]</dd>
+<dt><strong><code>dictionary</code></strong> :&ensp;<code>dict</code></dt>
+<dd>[description]</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></code></dt>
+<dd>[description]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_source(self,name:str,priority:str,dictionary:dict):
+    &#34;&#34;&#34;Allows you to add a dictionary as source
+
+    Args:
+        name (str): [unique name for your source]
+        priority (int): [set priority of the source]
+        dictionary (dict): [description]
+
+    Raises:
+        DuplicateSourceException: [description]
+    &#34;&#34;&#34;
+    uuid = self.__generate_uuid()
+    if name in self.uuidMappings:
+        raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+    self.sources[uuid] = Source(name,priority,dictionary,store_flat=self.store_flat)
+    self.uuidMappings[name] = uuid
+    if priority in self.prioritylist:
+        self.prioritylist[priority].append(uuid)
+    else:
+        self.prioritylist[priority] = [uuid]
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.add_url_source"><code class="name flex">
+<span>def <span class="ident">add_url_source</span></span>(<span>self, name: str, priority: int, url: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Allows you to add an url returning json data as source.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong> :&ensp;<code>str</code></dt>
+<dd>[unique name for your source]</dd>
+<dt><strong><code>priority</code></strong> :&ensp;<code>int</code></dt>
+<dd>[set priority of the source]</dd>
+<dt><strong><code>url</code></strong> :&ensp;<code>str</code></dt>
+<dd>[description]</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></code></dt>
+<dd>[description]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def add_url_source(self,name:str,priority:int,url:str):
+    &#34;&#34;&#34;Allows you to add an url returning json data as source.
+
+    Args:
+        name (str): [unique name for your source]
+        priority (int): [set priority of the source]
+        url (str): [description]
+
+    Raises:
+        DuplicateSourceException: [description]
+    &#34;&#34;&#34;
+    uuid = self.__generate_uuid()
+    if name in self.uuidMappings:
+        raise DuplicateSourceException((name,self.uuidMappings[name]),msg = &#34;Source {value[0]} already exists with uuid {value[1]}&#34;)
+    self.sources[uuid] = URLSource(name,priority,url=url,store_flat=self.store_flat)
+    self.uuidMappings[name] = uuid
+    if priority in self.prioritylist:
+        self.prioritylist[priority].append(uuid)
+    else:
+        self.prioritylist[priority] = [uuid]
+    self.__update_vars()</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.enable_environment_vars"><code class="name flex">
+<span>def <span class="ident">enable_environment_vars</span></span>(<span>self, prefix: str = 'CATILO_', strip: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Enables config retrieval from Environment variables
+@Params:
+prefix:str : A prefix value for bulk retrieval
+strip:bool : strip removes the prefix during storages. Eg, CATILO_VAR would be stored as VAR for prefix "CATILO_"</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enable_environment_vars(self,prefix:str=&#34;CATILO_&#34;,strip:bool=False):
+    &#34;&#34;&#34;
+    Enables config retrieval from Environment variables
+    @Params:
+        prefix:str : A prefix value for bulk retrieval
+        strip:bool : strip removes the prefix during storages. Eg, CATILO_VAR would be stored as VAR for prefix &#34;CATILO_&#34;   
+    &#34;&#34;&#34;
+    identifier = &#34;ENV_&#34; + prefix
+    if identifier in self.sources:
+        raise DuplicateSourceException(prefix, msg=f&#34;Environment source for prefix {prefix} is already present. Use refresh_env_vars(prefix) to refresh the vars&#34;)
+
+    varsdict = self.__get_environment_vars(prefix)
+    if strip:
+        varsdict = { k.strip(prefix):v for k,v in varsdict.items()}
+    self.add_source(identifier,priority=Priority.ENV,dictionary=varsdict)</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.get"><code class="name flex">
+<span>def <span class="ident">get</span></span>(<span>self, key: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Retrieves a variable name</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>key</code></strong> :&ensp;<code>str</code></dt>
+<dd>[variable name]</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code><a title="catilo.UndefinedVariableException" href="#catilo.UndefinedVariableException">UndefinedVariableException</a></code></dt>
+<dd>[Raises if variable is not found]</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>[any]</code></dt>
+<dd>[value if found for the variable]</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get(self,key:str):
+    &#34;&#34;&#34;Retrieves a variable name
+
+    Args:
+        key (str): [variable name]
+
+    Raises:
+        UndefinedVariableException: [Raises if variable is not found]
+
+    Returns:
+        [any]: [value if found for the variable]
+    &#34;&#34;&#34;
+    if key not in self.variables:
+        raise UndefinedVariableException(key)
+    else:
+        return self.variables[key]</code></pre>
+</details>
+</dd>
+<dt id="catilo.VariableDirectory.jsonquery"><code class="name flex">
+<span>def <span class="ident">jsonquery</span></span>(<span>self, expression: str)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def jsonquery(self,expression:str):
+    if self.store_flat:
+        warnings.warn(&#34;VariableDirectory:jsonquery =&gt; Variables are stored in flat dictionary. Expression may result in incorrect results&#34;)
+    expr = jsonpath_ng.parse(&#34;$.&#34;+expression)
+    return [match.value for match in expr.find(self.variables)]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="catilo.BaseException" href="#catilo.BaseException">BaseException</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.BaseException.msg" href="#catilo.BaseException.msg">msg</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.DuplicateSourceException" href="#catilo.DuplicateSourceException">DuplicateSourceException</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.DuplicateSourceException.msg" href="#catilo.DuplicateSourceException.msg">msg</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.FileSource" href="#catilo.FileSource">FileSource</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.FileSource.load_file" href="#catilo.FileSource.load_file">load_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.IncorrectPriorityException" href="#catilo.IncorrectPriorityException">IncorrectPriorityException</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.IncorrectPriorityException.msg" href="#catilo.IncorrectPriorityException.msg">msg</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.Priority" href="#catilo.Priority">Priority</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.Priority.DEFAULT" href="#catilo.Priority.DEFAULT">DEFAULT</a></code></li>
+<li><code><a title="catilo.Priority.ENV" href="#catilo.Priority.ENV">ENV</a></code></li>
+<li><code><a title="catilo.Priority.USER_VARS" href="#catilo.Priority.USER_VARS">USER_VARS</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.Source" href="#catilo.Source">Source</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.Source.add_var" href="#catilo.Source.add_var">add_var</a></code></li>
+<li><code><a title="catilo.Source.get_priority" href="#catilo.Source.get_priority">get_priority</a></code></li>
+<li><code><a title="catilo.Source.get_var" href="#catilo.Source.get_var">get_var</a></code></li>
+<li><code><a title="catilo.Source.get_vars_dict" href="#catilo.Source.get_vars_dict">get_vars_dict</a></code></li>
+<li><code><a title="catilo.Source.set_priority" href="#catilo.Source.set_priority">set_priority</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.TestStringMethods" href="#catilo.TestStringMethods">TestStringMethods</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.TestStringMethods.test_dict_keys_with_dot_json_query" href="#catilo.TestStringMethods.test_dict_keys_with_dot_json_query">test_dict_keys_with_dot_json_query</a></code></li>
+<li><code><a title="catilo.TestStringMethods.test_flat_dict" href="#catilo.TestStringMethods.test_flat_dict">test_flat_dict</a></code></li>
+<li><code><a title="catilo.TestStringMethods.test_flat_dict_keys_with_dot" href="#catilo.TestStringMethods.test_flat_dict_keys_with_dot">test_flat_dict_keys_with_dot</a></code></li>
+<li><code><a title="catilo.TestStringMethods.test_flat_dict_keys_with_dot_json_query" href="#catilo.TestStringMethods.test_flat_dict_keys_with_dot_json_query">test_flat_dict_keys_with_dot_json_query</a></code></li>
+<li><code><a title="catilo.TestStringMethods.test_runtime_priority" href="#catilo.TestStringMethods.test_runtime_priority">test_runtime_priority</a></code></li>
+<li><code><a title="catilo.TestStringMethods.test_url_source" href="#catilo.TestStringMethods.test_url_source">test_url_source</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.URLSource" href="#catilo.URLSource">URLSource</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.URLSource.load_url" href="#catilo.URLSource.load_url">load_url</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.UndefinedVariableException" href="#catilo.UndefinedVariableException">UndefinedVariableException</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.UndefinedVariableException.msg" href="#catilo.UndefinedVariableException.msg">msg</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.UnknownSourceException" href="#catilo.UnknownSourceException">UnknownSourceException</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.UnknownSourceException.msg" href="#catilo.UnknownSourceException.msg">msg</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="catilo.UnsupportedFileTypeException" href="#catilo.UnsupportedFileTypeException">UnsupportedFileTypeException</a></code></h4>
+</li>
+<li>
+<h4><code><a title="catilo.VariableDirectory" href="#catilo.VariableDirectory">VariableDirectory</a></code></h4>
+<ul class="">
+<li><code><a title="catilo.VariableDirectory.add_custom_source" href="#catilo.VariableDirectory.add_custom_source">add_custom_source</a></code></li>
+<li><code><a title="catilo.VariableDirectory.add_default_var" href="#catilo.VariableDirectory.add_default_var">add_default_var</a></code></li>
+<li><code><a title="catilo.VariableDirectory.add_file_source" href="#catilo.VariableDirectory.add_file_source">add_file_source</a></code></li>
+<li><code><a title="catilo.VariableDirectory.add_runtime_var" href="#catilo.VariableDirectory.add_runtime_var">add_runtime_var</a></code></li>
+<li><code><a title="catilo.VariableDirectory.add_source" href="#catilo.VariableDirectory.add_source">add_source</a></code></li>
+<li><code><a title="catilo.VariableDirectory.add_url_source" href="#catilo.VariableDirectory.add_url_source">add_url_source</a></code></li>
+<li><code><a title="catilo.VariableDirectory.enable_environment_vars" href="#catilo.VariableDirectory.enable_environment_vars">enable_environment_vars</a></code></li>
+<li><code><a title="catilo.VariableDirectory.get" href="#catilo.VariableDirectory.get">get</a></code></li>
+<li><code><a title="catilo.VariableDirectory.jsonquery" href="#catilo.VariableDirectory.jsonquery">jsonquery</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
