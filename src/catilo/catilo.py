@@ -108,6 +108,7 @@ class Source():
 
 class FileSource(Source):
     def __init__(self,name,priority,file : str=None,store_flat :bool = True):
+        self.store_flat = store_flat
         dictionary = self.load_file(file)
         self._add_source(name,priority,dictionary,store_flat)
     
@@ -123,6 +124,7 @@ class FileSource(Source):
 class URLSource(Source):
     def __init__(self,name,priority,url,filetype='json',store_flat :bool = True):
         self.filetype = filetype
+        self.store_flat = store_flat
         dictionary = self.load_url(url)
         try:
             dictionary = json.loads(dictionary)
@@ -455,6 +457,18 @@ class TestStringMethods(unittest.TestCase):
         varsource.add_url_source("SampleJson",6,"https://raw.githubusercontent.com/jptalukdar/catilo/master/tests/tests_data/json/sample1.json")
         self.assertEqual(varsource.get("color"),"Red")
     
+    def test_file_source(self):
+        varsource = VariableDirectory()
+        varsource.add_source("input",5,{
+            "fruit" : "apple",
+            "colour" : "red"
+        })
+        varsource.save_directory("output.json")
+
+        varsource2 = VariableDirectory()
+        varsource2.add_file_source("test",3,"output.json")
+        self.assertEqual(varsource2.get("fruit"),"apple")
+        
     def test_url_source(self):
         with self.assertRaises(UnsupportedFileTypeException):
             varsource = VariableDirectory()
