@@ -206,6 +206,7 @@ class VariableDirectory():
         self.store_flat = store_flat
         self.prioritylist = {}
         self.sources = {}
+        self.mainUUID = self.__generate_uuid()
         self.variables = {}
         self.raw_variables = {}
         self.uuidMappings = {}
@@ -359,7 +360,7 @@ class VariableDirectory():
 
     def __get_environment_vars(self,prefix="CATILO_"):
         envvars = dict(os.environ)
-        envvars = { k: v for k,v in envvars.items() if str(k).startswith("CATILO_")}
+        envvars = { k: v for k,v in envvars.items() if str(k).startswith(prefix)}
         return envvars
 
     def __update_vars(self):
@@ -401,12 +402,15 @@ class VariableDirectory():
         return [match.value for match in expr.find(self.variables)]
 
     def save_directory(self,path:str,extension:str="json"):
+        if path is None:
+            raise FileNotFoundError("File given is 'NoneType'. Check your path again")
         if extension in ["json"]:
             _dump_json(self.variables,path)
         elif extension in ["yml","yaml"]:
             _dump_yaml(self.variables,path)
         else:
             raise UnsupportedFileTypeException(extension,msg="Unsupported extension [{extension}] for output. Only [json,yml,yaml] supported")
+        return path
 class TestStringMethods(unittest.TestCase):
 
     def test_runtime_priority(self):
@@ -468,7 +472,7 @@ class TestStringMethods(unittest.TestCase):
         varsource2 = VariableDirectory()
         varsource2.add_file_source("test",3,"output.json")
         self.assertEqual(varsource2.get("fruit"),"apple")
-        
+
     def test_url_source(self):
         with self.assertRaises(UnsupportedFileTypeException):
             varsource = VariableDirectory()
