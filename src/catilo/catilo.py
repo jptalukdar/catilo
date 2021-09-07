@@ -17,21 +17,21 @@ class Priority():
     USER_VARS = 2
     DEFAULT= 100
 
-def __loadAsYml(path):
+def _loadAsYml(path):
         with open(path,'r') as fp:
             data = yaml.safe_load(fp)
         return data
 
-def __loadAsJSON(path):
+def _loadAsJSON(path):
         with open(path,'r') as fp:
             data = json.loads(fp.read())
         return data
 
-def __load_file(path):
+def _load_file(path):
         if str(path).lower().endswith('.yml') or str(path).lower().endswith('.yaml'):
-            return __loadAsYml(path)
+            return _loadAsYml(path)
         elif str(path).lower().endswith('.json'):
-            return __loadAsJSON(path)
+            return _loadAsJSON(path)
         else:
             raise UnsupportedFileTypeException(path.split('.')[-1])
 
@@ -106,7 +106,7 @@ class FileSource(Source):
     
     def load_file(self,path):
         try:
-            variables =__load_file(path)
+            variables =_load_file(path)
             if self.store_flat:
                 variables = flatten(variables, reducer="dot", keep_empty_types=(dict, list,))
             return variables
