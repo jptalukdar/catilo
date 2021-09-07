@@ -43,11 +43,18 @@ def _dump_yaml(data,path):
     with open(path,'w') as fp:
         yaml.dump(data,fp)
 class UnsupportedFileTypeException(Exception):
-    def __init__(self,value="Unsupported File Type Exception"):
+    def __init__(self,value="Unsupported File Type Exception",msg=None):
         self.value = value
-    
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Unsupported File format - [{value}]"
+
     def __str__(self):
-        return str(self.value)
+        return self.msg
+
+    def __str__(self):
+        return str(self.value) + " is not supported. Only [yml,yaml,json] supported"
 
 class Source():
     def __init__(self,name:str,priority:int,dictionary : dict,store_flat :bool = True):
@@ -67,7 +74,7 @@ class Source():
         self.variables = {}
         self.raw_variables = {}
         self.store_flat = store_flat
-        if dictionary != None:
+        if dictionary is not None:
             if self.store_flat:
                 dictionary = flatten(dictionary, reducer="dot", keep_empty_types=(dict, list,))
             self.variables.update(dictionary)
@@ -110,8 +117,8 @@ class FileSource(Source):
             if self.store_flat:
                 variables = flatten(variables, reducer="dot", keep_empty_types=(dict, list,))
             return variables
-        except Exception:
-            Exception('Could not read file, check again')
+        except FileNotFoundError as ex:
+            raise Exception('Could not find file, check again')
 
 class URLSource(Source):
     def __init__(self,name,priority,url,filetype='json',store_flat :bool = True):
@@ -132,28 +139,66 @@ class BaseException(Exception):
 
     def __init__(self,value,msg=None):
         self.value = value
-        if msg != None:
+        if msg is not None:
             self.msg = msg
         
-
     def __str__(self):
-        return self.msg.format(self.value)
+        return self.msg
         
 class IncorrectPriorityException(BaseException):
     msg = "Incorrect Priority Set {value}"
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Incorrect Priority Set {value}"
+    def __str__(self):
+        return self.msg 
 
 class UndefinedVariableException(BaseException):
     msg = "{value} not defined"
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Variable - [{value}] is not defined"
+    def __str__(self):
+        return self.msg
 
 class DuplicateSourceException(BaseException):
     msg = "Source {value} already exists"
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Source {value} already exists"
 
+    def __str__(self):
+        return self.msg
 class UnknownSourceException(BaseException):
     msg = "Exception adding vars to unknown source [{value}]. PS: Source names are case sensitive"
-
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Exception adding vars to unknown source [{value}]. PS: Source names are case sensitive"
+    def __str__(self):
+        return self.msg
 class UnknownOutputExtensionException(BaseException):
     msg = "Found Unknown extension while saving directory: [{value}]"
-
+    def __init__(self,value,msg=None):
+        self.value = value
+        if msg is not None:
+            self.msg = msg
+        else:
+            self.msg = f"Found Unknown extension while saving directory: [{value}]"
+        
+    def __str__(self):
+        return self.msg
 class VariableDirectory():
     def __init__(self,store_flat=True):
         self.store_flat = store_flat
@@ -181,7 +226,7 @@ class VariableDirectory():
         name = source.name
         priority = source.priority
         if name in self.uuidMappings:
-            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = "Source {value[0]} already exists with uuid {value[1]}")
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = f"Source {name} already exists with uuid {self.uuidMappings[name]}")
         self.sources[uuid] = source
         self.uuidMappings[name] = uuid
         if priority in self.prioritylist:
@@ -203,7 +248,7 @@ class VariableDirectory():
         """
         uuid = self.__generate_uuid()
         if name in self.uuidMappings:
-            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = "Source {value[0]} already exists with uuid {value[1]}")
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = f"Source {name} already exists with uuid {self.uuidMappings[name]}")
         self.sources[uuid] = FileSource(name,priority,file,store_flat=self.store_flat)
         self.uuidMappings[name] = uuid
         if priority in self.prioritylist:
@@ -225,7 +270,7 @@ class VariableDirectory():
         """
         uuid = self.__generate_uuid()
         if name in self.uuidMappings:
-            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = "Source {value[0]} already exists with uuid {value[1]}")
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = f"Source {name} already exists with uuid {self.uuidMappings[name]}")
         self.sources[uuid] = URLSource(name,priority,url=url,store_flat=self.store_flat)
         self.uuidMappings[name] = uuid
         if priority in self.prioritylist:
@@ -247,7 +292,7 @@ class VariableDirectory():
         """
         uuid = self.__generate_uuid()
         if name in self.uuidMappings:
-            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = "Source {value[0]} already exists with uuid {value[1]}")
+            raise DuplicateSourceException((name,self.uuidMappings[name]),msg = f"Source '{name}' already exists with uuid {self.uuidMappings[name]}")
         self.sources[uuid] = Source(name,priority,dictionary,store_flat=self.store_flat)
         self.uuidMappings[name] = uuid
         if priority in self.prioritylist:
@@ -359,7 +404,7 @@ class VariableDirectory():
         elif extension in ["yml","yaml"]:
             _dump_yaml(self.variables,path)
         else:
-            raise UnknownSourceException("")
+            raise UnsupportedFileTypeException(extension,msg="Unsupported extension [{extension}] for output. Only [json,yml,yaml] supported")
 class TestStringMethods(unittest.TestCase):
 
     def test_runtime_priority(self):
@@ -411,9 +456,26 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(varsource.get("color"),"Red")
     
     def test_url_source(self):
-        varsource = VariableDirectory()
-        varsource.add_url_source("SampleJson",6,"https://raw.githubusercontent.com/jptalukdar/catilo/master/tests/tests_data/json/sample-non-existent.json")
-        self.assertRaises(UnsupportedFileTypeException)
+        with self.assertRaises(UnsupportedFileTypeException):
+            varsource = VariableDirectory()
+            varsource.add_url_source("SampleJson",6,"https://raw.githubusercontent.com/jptalukdar/catilo/master/tests/tests_data/json/sample-non-existent.json")
+
+    def test_duplicate_source(self):
+        with self.assertRaises(DuplicateSourceException):
+            varsource = VariableDirectory()
+            varsource.add_source("SampleJson",6,{})
+            varsource.add_source("SampleJson",6,{})
+
+    def test_undefined_variables(self):    
+        with self.assertRaises(UndefinedVariableException):
+            varsource = VariableDirectory()
+            varsource.add_source("SampleJson",6,{})
+            varsource.get("MyKey")
+    
+    def test_non_supported_extension(self):    
+        with self.assertRaises(UnsupportedFileTypeException):
+            varsource = VariableDirectory()
+            varsource.add_file_source("SampleJson",6,"test.xml")
 
     def test_save_json(self):
         varsource = VariableDirectory(store_flat=True)
@@ -422,6 +484,15 @@ class TestStringMethods(unittest.TestCase):
             } 
         })
         varsource.save_directory("output.json")
+    def test_save_unknown(self):
+        with self.assertRaises(UnsupportedFileTypeException):
+            varsource = VariableDirectory(store_flat=True)
+            varsource.add_source("test1",priority=5,dictionary={
+                "key" : {"key2" : 5
+                } 
+            })
+            varsource.save_directory("output.xml",extension="xml")
+
     def test_save_yaml(self):
         varsource = VariableDirectory(store_flat=True)
         varsource.add_source("test1",priority=5,dictionary={
