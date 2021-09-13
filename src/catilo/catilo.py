@@ -354,7 +354,8 @@ class VariableDirectory():
 
         varsdict = self.__get_environment_vars(prefix)
         if strip:
-            varsdict = { k.strip(prefix):v for k,v in varsdict.items()}
+            length = len(prefix)
+            varsdict = { k[length:]:v for k,v in varsdict.items()}
         self.add_source(identifier,priority=Priority.ENV,dictionary=varsdict)
 
 
@@ -428,7 +429,11 @@ class TestStringMethods(unittest.TestCase):
             }
         })
         self.assertEqual(varsource.get("key.key2"), 5)
-    
+    def test_environment_variables(self):
+        varsource = VariableDirectory()
+        varsource.enable_environment_vars(strip=True)
+
+        self.assertEqual(varsource.get("info"),"45")
     def test_flat_dict_keys_with_dot(self):
         varsource = VariableDirectory()
         varsource.add_source("test1",priority=5,dictionary={
